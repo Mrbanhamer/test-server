@@ -1,4 +1,5 @@
 from flask import Flask, redirect, url_for, request, render_template
+namn = ''
 
 app = Flask(__name__)
 

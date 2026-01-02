@@ -28,11 +28,12 @@ def add_new_data():
     )
     mydb.commit()
 
-make_database()
-
-mycursor.execute("SELECT * FROM namn")
+mycursor.execute('SELECT * FROM namn')
 rows = mycursor.fetchall()
 print(rows)
+
+if __name__ == '__main__':
+    make_database()
 
 mycursor.close()
 mydb.close()

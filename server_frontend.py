@@ -24,11 +24,11 @@ def login():
         user = request.args.get('nm')
         return redirect(url_for('success', name=user))
     
-@app.route('/write', methods=['POST', 'GET'])
+@app.route('/write', methods=['POST'])
 def write_down():
     name = request.form['name']
     add_new_data(name)
-    return redirect(url_for('/saved/<name>'))
+    return redirect(url_for('/saved', name=name))
 
 @app.route('/saved/<name>')
 def saved(name):

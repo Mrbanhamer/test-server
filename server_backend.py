@@ -19,6 +19,7 @@ def connection():
 mycursor = mydb.cursor()
 
 def make_database():
+    mydb = connection()
     mycursor.execute("""
     CREATE TABLE IF NOT EXISTS namn (
         id INT AUTO_INCREMENT PRIMARY KEY,
@@ -26,6 +27,9 @@ def make_database():
     )             
     """
     )
+    mydb.commit()
+    mycursor.close()
+    mydb.close()
 
 def add_new_data(name):
     mydb = connection()

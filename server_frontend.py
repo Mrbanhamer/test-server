@@ -9,26 +9,29 @@ def home():
 
 @app.route('/info')
 def info():
-    return render_template('write_information.html')
+    return render_template('write_down_information.html')
 
 @app.route('/success/<name>')
 def success(name):
     return f'welcome {name}'
 
-@app.route('/login', methods=['POST', 'GET'])
+@app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
-        user = request.form['nm']
-        return redirect(url_for('success', name=user))
-    else:
-        user = request.args.get('nm')
-        return redirect(url_for('success', name=user))
+        password = request.form['psw']
+
+        if password == "secret123":  
+            return redirect(url_for('info'))
+        else:
+            return "Wrong password", 401
+
+    return render_template('login.html')
     
 @app.route('/write', methods=['POST'])
 def write_down():
     name = request.form['name']
     add_new_data(name)
-    return redirect(url_for('/saved', name=name))
+    return redirect(url_for('saved', name=name))
 
 @app.route('/saved/<name>')
 def saved(name):

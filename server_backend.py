@@ -1,5 +1,4 @@
 import mysql.connector
-#from server_fronend import namn
 
 namn = 'variables'
 
@@ -21,16 +20,16 @@ def make_database():
     """
     )
 
-def add_new_data():
+def add_new_data(name):
     mycursor.execute(
         'INSERT INTO namn (name) values (%s)',
         (namn,)
     )
     mydb.commit()
 
-mycursor.execute('SELECT * FROM namn')
-rows = mycursor.fetchall()
-print(rows)
+#mycursor.execute('SELECT * FROM namn')
+#rows = mycursor.fetchall()
+#print(rows)
 
 if __name__ == '__main__':
     make_database()

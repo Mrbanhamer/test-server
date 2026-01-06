@@ -37,5 +37,6 @@ def write_down():
 def saved(name):
     return f"Name '{name}' saved succesfully!"
 
+
 if __name__ == '__main__':
     app.run(debug=True)

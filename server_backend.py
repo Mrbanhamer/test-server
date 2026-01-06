@@ -42,6 +42,13 @@ def add_new_data(name):
     mycursor.close()
     mydb.close()
 
+def show_data():
+    mydb = connection()
+    mycursor = mydb.cursor()
+    mycursor.execute('SELECT * FROM namn')
+    rows = mycursor.fetchall()
+    return rows
+
 #mycursor.execute('SELECT * FROM namn')
 #rows = mycursor.fetchall()
 #print(rows)

@@ -47,6 +47,9 @@ def show_data():
     mycursor = mydb.cursor()
     mycursor.execute('SELECT * FROM namn')
     rows = mycursor.fetchall()
+    mydb.commit()
+    mycursor.close()
+    mydb.close
     return rows
 
 #mycursor.execute('SELECT * FROM namn')

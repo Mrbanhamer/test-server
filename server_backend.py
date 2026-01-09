@@ -1,5 +1,12 @@
 import mysql.connector
 
+mydb = mysql.connector.connect(
+    host = 'localhost',
+    user = 'app_user',
+    password = 'password123',
+    database = 'mydatabase'
+)
+
 def connection():
     mydb = mysql.connector.connect(
         host = 'localhost',
